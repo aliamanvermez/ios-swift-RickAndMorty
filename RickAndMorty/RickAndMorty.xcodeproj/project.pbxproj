@@ -23,6 +23,13 @@
 		EF280E0B295E21CB00D9DF34 /* RMLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF280E0A295E21CB00D9DF34 /* RMLocationViewController.swift */; };
 		EF280E0D295E21DB00D9DF34 /* RMEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF280E0C295E21DB00D9DF34 /* RMEpisodeViewController.swift */; };
 		EF280E0F295E21EE00D9DF34 /* RMSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF280E0E295E21EE00D9DF34 /* RMSettingsViewController.swift */; };
+		EF280E12295E40DE00D9DF34 /* RMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF280E11295E40DE00D9DF34 /* RMService.swift */; };
+		EF280E14295E40ED00D9DF34 /* RMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF280E13295E40ED00D9DF34 /* RMRequest.swift */; };
+		EF280E16295F226900D9DF34 /* RMSingleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF280E15295F226900D9DF34 /* RMSingleLocation.swift */; };
+		EF280E18295F23AA00D9DF34 /* RMOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF280E17295F23AA00D9DF34 /* RMOrigin.swift */; };
+		EF280E1A295F248900D9DF34 /* RMCharacterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF280E19295F248900D9DF34 /* RMCharacterStatus.swift */; };
+		EF280E1C295F254200D9DF34 /* RMCharacterGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF280E1B295F254200D9DF34 /* RMCharacterGender.swift */; };
+		EF280E1E295F292800D9DF34 /* RMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF280E1D295F292800D9DF34 /* RMEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +70,13 @@
 		EF280E0A295E21CB00D9DF34 /* RMLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLocationViewController.swift; sourceTree = "<group>"; };
 		EF280E0C295E21DB00D9DF34 /* RMEpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEpisodeViewController.swift; sourceTree = "<group>"; };
 		EF280E0E295E21EE00D9DF34 /* RMSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSettingsViewController.swift; sourceTree = "<group>"; };
+		EF280E11295E40DE00D9DF34 /* RMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMService.swift; sourceTree = "<group>"; };
+		EF280E13295E40ED00D9DF34 /* RMRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMRequest.swift; sourceTree = "<group>"; };
+		EF280E15295F226900D9DF34 /* RMSingleLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSingleLocation.swift; sourceTree = "<group>"; };
+		EF280E17295F23AA00D9DF34 /* RMOrigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMOrigin.swift; sourceTree = "<group>"; };
+		EF280E19295F248900D9DF34 /* RMCharacterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterStatus.swift; sourceTree = "<group>"; };
+		EF280E1B295F254200D9DF34 /* RMCharacterGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterGender.swift; sourceTree = "<group>"; };
+		EF280E1D295F292800D9DF34 /* RMEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +127,7 @@
 		EF280DC9295CAA0F00D9DF34 /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				EF280E10295E2F7100D9DF34 /* APIClient */,
 				EF280E00295E1ECC00D9DF34 /* Models */,
 				EF280DFF295DD9EF00D9DF34 /* Controllers */,
 				EF280DFA295CAA4100D9DF34 /* Support */,
@@ -180,6 +195,10 @@
 				EF280E01295E1EDD00D9DF34 /* RMLocation.swift */,
 				EF280E03295E20E100D9DF34 /* RMCharacter.swift */,
 				EF280E05295E20F100D9DF34 /* RMEpisode.swift */,
+				EF280E15295F226900D9DF34 /* RMSingleLocation.swift */,
+				EF280E17295F23AA00D9DF34 /* RMOrigin.swift */,
+				EF280E19295F248900D9DF34 /* RMCharacterStatus.swift */,
+				EF280E1B295F254200D9DF34 /* RMCharacterGender.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,6 +213,16 @@
 				EF280E0E295E21EE00D9DF34 /* RMSettingsViewController.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		EF280E10295E2F7100D9DF34 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				EF280E11295E40DE00D9DF34 /* RMService.swift */,
+				EF280E13295E40ED00D9DF34 /* RMRequest.swift */,
+				EF280E1D295F292800D9DF34 /* RMEndpoint.swift */,
+			);
+			path = APIClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,14 +357,21 @@
 			files = (
 				EF280E0B295E21CB00D9DF34 /* RMLocationViewController.swift in Sources */,
 				EF280E04295E20E100D9DF34 /* RMCharacter.swift in Sources */,
+				EF280E1A295F248900D9DF34 /* RMCharacterStatus.swift in Sources */,
+				EF280E1C295F254200D9DF34 /* RMCharacterGender.swift in Sources */,
+				EF280E12295E40DE00D9DF34 /* RMService.swift in Sources */,
+				EF280E16295F226900D9DF34 /* RMSingleLocation.swift in Sources */,
 				EF280DCF295CAA0F00D9DF34 /* RMTabViewController.swift in Sources */,
 				EF280E0D295E21DB00D9DF34 /* RMEpisodeViewController.swift in Sources */,
 				EF280E06295E20F100D9DF34 /* RMEpisode.swift in Sources */,
+				EF280E14295E40ED00D9DF34 /* RMRequest.swift in Sources */,
 				EF280E0F295E21EE00D9DF34 /* RMSettingsViewController.swift in Sources */,
 				EF280DCB295CAA0F00D9DF34 /* AppDelegate.swift in Sources */,
 				EF280E02295E1EDD00D9DF34 /* RMLocation.swift in Sources */,
 				EF280E09295E21C000D9DF34 /* RMCharacterViewController.swift in Sources */,
 				EF280DFE295CAE8F00D9DF34 /* UIViewController+Extensions.swift in Sources */,
+				EF280E1E295F292800D9DF34 /* RMEndpoint.swift in Sources */,
+				EF280E18295F23AA00D9DF34 /* RMOrigin.swift in Sources */,
 				EF280DCD295CAA0F00D9DF34 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
