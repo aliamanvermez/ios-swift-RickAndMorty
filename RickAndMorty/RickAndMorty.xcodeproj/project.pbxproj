@@ -30,6 +30,7 @@
 		EF280E1A295F248900D9DF34 /* RMCharacterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF280E19295F248900D9DF34 /* RMCharacterStatus.swift */; };
 		EF280E1C295F254200D9DF34 /* RMCharacterGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF280E1B295F254200D9DF34 /* RMCharacterGender.swift */; };
 		EF280E1E295F292800D9DF34 /* RMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF280E1D295F292800D9DF34 /* RMEndpoint.swift */; };
+		EF3B30A02965F872006AB05F /* RMGetAllCharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3B309F2965F872006AB05F /* RMGetAllCharacterResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		EF280E19295F248900D9DF34 /* RMCharacterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterStatus.swift; sourceTree = "<group>"; };
 		EF280E1B295F254200D9DF34 /* RMCharacterGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterGender.swift; sourceTree = "<group>"; };
 		EF280E1D295F292800D9DF34 /* RMEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEndpoint.swift; sourceTree = "<group>"; };
+		EF3B309F2965F872006AB05F /* RMGetAllCharacterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMGetAllCharacterResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,13 +194,8 @@
 		EF280E00295E1ECC00D9DF34 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EF280E01295E1EDD00D9DF34 /* RMLocation.swift */,
-				EF280E03295E20E100D9DF34 /* RMCharacter.swift */,
-				EF280E05295E20F100D9DF34 /* RMEpisode.swift */,
-				EF280E15295F226900D9DF34 /* RMSingleLocation.swift */,
-				EF280E17295F23AA00D9DF34 /* RMOrigin.swift */,
-				EF280E19295F248900D9DF34 /* RMCharacterStatus.swift */,
-				EF280E1B295F254200D9DF34 /* RMCharacterGender.swift */,
+				EF3B309E2965F852006AB05F /* APIResponseTypes */,
+				EF3B309D2965F831006AB05F /* DataTypes */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,6 +220,28 @@
 				EF280E1D295F292800D9DF34 /* RMEndpoint.swift */,
 			);
 			path = APIClient;
+			sourceTree = "<group>";
+		};
+		EF3B309D2965F831006AB05F /* DataTypes */ = {
+			isa = PBXGroup;
+			children = (
+				EF280E01295E1EDD00D9DF34 /* RMLocation.swift */,
+				EF280E03295E20E100D9DF34 /* RMCharacter.swift */,
+				EF280E05295E20F100D9DF34 /* RMEpisode.swift */,
+				EF280E15295F226900D9DF34 /* RMSingleLocation.swift */,
+				EF280E17295F23AA00D9DF34 /* RMOrigin.swift */,
+				EF280E19295F248900D9DF34 /* RMCharacterStatus.swift */,
+				EF280E1B295F254200D9DF34 /* RMCharacterGender.swift */,
+			);
+			path = DataTypes;
+			sourceTree = "<group>";
+		};
+		EF3B309E2965F852006AB05F /* APIResponseTypes */ = {
+			isa = PBXGroup;
+			children = (
+				EF3B309F2965F872006AB05F /* RMGetAllCharacterResponse.swift */,
+			);
+			path = APIResponseTypes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +391,7 @@
 				EF280DFE295CAE8F00D9DF34 /* UIViewController+Extensions.swift in Sources */,
 				EF280E1E295F292800D9DF34 /* RMEndpoint.swift in Sources */,
 				EF280E18295F23AA00D9DF34 /* RMOrigin.swift in Sources */,
+				EF3B30A02965F872006AB05F /* RMGetAllCharacterResponse.swift in Sources */,
 				EF280DCD295CAA0F00D9DF34 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
