@@ -6,13 +6,33 @@
 //
 
 import UIKit
-
+import SnapKit
 final class RMCharacterViewController: UIViewController {
-
+    private let characterListView = CharacterListView()
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Characters"
-        
+        view.addSubview(characterListView)
+        createSnapkit()
+    }
+    
+    func createSnapkit() {
+        characterListView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(150)
+            make.width.equalToSuperview()
+            make.height.equalTo(600)
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
 //        let request = RMRequest(endpoint: .character,
 //                                queryParameters: [URLQueryItem(name: "name", value: "rick"),
 //                                                 URLQueryItem(name: "status", value: "alive")])
@@ -26,15 +46,3 @@ final class RMCharacterViewController: UIViewController {
 //r
 //            }
 //        }
-        
-        RMService.shared.execute(.listCharactersRequest, expecting: RMGetAllCharacterResponse.self) { result in
-            switch result {
-            case .success(let success):
-                print(String(describing: success))
-            case .failure(let failure):
-                print(String(describing: failure))
-            }
-        }
-
-    }
-}
