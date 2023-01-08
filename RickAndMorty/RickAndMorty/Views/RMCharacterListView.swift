@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 ///View that handles showing list of characters, loader, etc.
-final class CharacterListView: UIView {
+final class RMCharacterListView: UIView {
    
-    private let viewModel = CharacterListViewViewModel()
+    private let viewModel = RMCharacterListViewViewModel()
     
     
     private let spinner : UIActivityIndicatorView = {
@@ -25,8 +25,8 @@ final class CharacterListView: UIView {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isHidden = true
-        collectionView.alpha = 0
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.alpha = 0 
+        collectionView.register(RMCharacterCollectionViewCell.self, forCellWithReuseIdentifier: RMCharacterCollectionViewCell.identifier )
         return collectionView
     }()
     

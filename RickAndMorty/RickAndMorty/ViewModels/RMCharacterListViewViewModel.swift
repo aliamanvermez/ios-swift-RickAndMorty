@@ -7,13 +7,12 @@
 
 import Foundation
 import UIKit
-final class CharacterListViewViewModel: NSObject{
+final class RMCharacterListViewViewModel: NSObject{
     func fetchCharacters() {
         RMService.shared.execute(.listCharactersRequest, expecting: RMGetAllCharacterResponse.self) { result in
             switch result {
             case .success(let model):
-                print("Total :" + String(model.info.pages))
-                print("Counts :" + String(model.results.count))
+                print("Example image url :" + String(model.results.first?.image ?? "No image"))
             case .failure(let failure):
                 print(String(describing: failure))
             }
@@ -21,13 +20,17 @@ final class CharacterListViewViewModel: NSObject{
     }
 }
 
-extension CharacterListViewViewModel : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension RMCharacterListViewViewModel : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RMCharacterCollectionViewCell.identifier, for: indexPath) as? RMCharacterCollectionViewCell else {
+            fatalError("Unsupported cell")
+        }
+        let viewModel = RMCharacterCollectionViewCellViewModel(characterName: "Ali", characterStatus: .alive, characterImageURL: nil)
+        cell.configure(with: viewModel )
         cell.backgroundColor = .darkGray
         return cell
         
