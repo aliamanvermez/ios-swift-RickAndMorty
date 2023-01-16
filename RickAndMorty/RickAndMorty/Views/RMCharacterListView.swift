@@ -36,6 +36,7 @@ final class RMCharacterListView: UIView {
         addSubviews(collectionView,spinner)
         createSnapkitConstraints()
         spinner.startAnimating()
+        viewModel.delegate = self
         viewModel.fetchCharacters()
         setUpCollectionView()
     }
@@ -54,7 +55,7 @@ final class RMCharacterListView: UIView {
         collectionView.snp.makeConstraints { make in
             make.width.equalTo(self.snp.width)
             make.top.equalTo(self.snp.top).offset(30)
-            make.height.equalTo(550)
+            make.height.equalTo(600)
         
         }
     }
@@ -62,15 +63,19 @@ final class RMCharacterListView: UIView {
     private func setUpCollectionView() {
         collectionView.dataSource =  viewModel
         collectionView.delegate = viewModel
-        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
-            self.spinner.stopAnimating()
-            self.collectionView.isHidden = false
-            UIView.animate(withDuration: 0.4){
-            self.collectionView.alpha = 1
-            }
-            
-        })
     }
     
 
+}
+
+extension RMCharacterListView : RMCharacterListViewViewModelDelegate {
+    func didLoadInitialCharacters() {
+        self.spinner.stopAnimating()
+        self.collectionView.isHidden = false
+        collectionView.reloadData() //Initial fetch
+        UIView.animate(withDuration: 0.4){
+        self.collectionView.alpha = 1
+        }
+        
+    }
 }
