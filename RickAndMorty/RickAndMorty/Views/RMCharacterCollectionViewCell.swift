@@ -13,7 +13,8 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     
     public let imageView : UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -38,6 +39,10 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         contentView.addSubviews(imageView, nameLabel, statusLabel)
         contentView.backgroundColor = .secondarySystemBackground
         addConstraints()
+        contentView.layer.cornerRadius = 8
+        contentView.layer.shadowColor = UIColor.secondaryLabel.cgColor
+        contentView.layer.shadowOffset = CGSize(width: -4 , height: 4)
+        contentView.layer.shadowOpacity = 0.3
     }
     
     
@@ -47,16 +52,16 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     
     func addConstraints() {
         statusLabel.snp.makeConstraints { make in
-            make.height.equalTo(40)
+            make.height.equalTo(30)
             make.width.equalToSuperview()
-            make.left.equalTo(contentView.snp.left)
+            make.left.equalTo(contentView.snp.left).offset(5)
             make.bottom.equalTo(contentView.snp.bottom).offset(-3)
         }
         nameLabel.snp.makeConstraints { make in
-            make.height.equalTo(40)
+            make.height.equalTo(30)
             make.width.equalToSuperview()
-            make.left.equalTo(contentView.snp.left)
-            make.bottom.equalTo(statusLabel.snp.top).offset(-5)
+            make.left.equalTo(contentView.snp.left).offset(5)
+            make.bottom.equalTo(statusLabel.snp.top).offset(-3)
         }
         
         imageView.snp.makeConstraints { make in
