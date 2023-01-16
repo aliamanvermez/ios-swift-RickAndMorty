@@ -8,8 +8,19 @@
 import Foundation
 enum RMCharacterStatus: String, Codable {
     
-    case alive = "Alive"
-    case dead = "Dead"
-    case `unknown` = "Unknown"
+    case Alive = "Alive"
+    case Dead = "Dead"
+    case `unknown` = "unknown"
+    
+    var text : String {
+        switch self {
+        case .Alive, .Dead:
+            return rawValue
+        case .unknown:
+            return "Unknown"
+        }
+    }
     
 }
+
+

@@ -23,7 +23,7 @@ final class RMCharacterCollectionViewCellViewModel{
     
     //Because of the RMCharacterStatus is an enum, we used raw value.
     public var characterStatusText : String {
-        return characterStatus.rawValue
+        return "Status : \(characterStatus.text)"
     }
     
     public func fetchImage(completion : @escaping (Result <Data, Error>) -> Void) {
