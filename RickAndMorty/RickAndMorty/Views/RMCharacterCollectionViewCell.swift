@@ -39,15 +39,20 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         contentView.addSubviews(imageView, nameLabel, statusLabel)
         contentView.backgroundColor = .secondarySystemBackground
         addConstraints()
-        contentView.layer.cornerRadius = 8
-        contentView.layer.shadowColor = UIColor.secondaryLabel.cgColor
-        contentView.layer.shadowOffset = CGSize(width: -4 , height: 4)
-        contentView.layer.shadowOpacity = 0.3
+        setUpLayer()
+       
     }
     
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setUpLayer() {
+        contentView.layer.cornerRadius = 8
+        contentView.layer.shadowColor = UIColor.label.cgColor
+        contentView.layer.shadowOffset = CGSize(width: -4 , height: 4)
+        contentView.layer.shadowOpacity = 0.3
     }
     
     func addConstraints() {
@@ -73,6 +78,11 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         }
         
         
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        setUpLayer()
     }
     
     override func prepareForReuse() {
