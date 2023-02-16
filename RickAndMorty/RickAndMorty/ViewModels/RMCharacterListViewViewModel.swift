@@ -18,6 +18,8 @@ final class RMCharacterListViewViewModel: NSObject{
     
     public weak var delegate : RMCharacterListViewViewModelDelegate?
     
+    public var isLoadingMoreCharacters = false
+    
     private var characters : [RMCharacter] = [] {
         didSet {
             for character in characters {
@@ -74,13 +76,14 @@ extension RMCharacterListViewViewModel : UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionFooter else {
-                fatalError("Unsupported")
+        guard kind == UICollectionView.elementKindSectionFooter,
+              let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifier , for: indexPath) as? RMFooterLoadingCollectionReusableView else {
+            fatalError("Unsupported")
         }
-        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: RMCharacterCollectionViewCell.identifier , for: indexPath)
-        
+        footer.startAnimating()
         return footer
-    }
+
+        }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         guard shouldShowLoadMoreIndicator else {
@@ -108,8 +111,18 @@ extension RMCharacterListViewViewModel : UICollectionViewDataSource, UICollectio
 
 extension RMCharacterListViewViewModel : UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard shouldShowLoadMoreIndicator else {
+        guard shouldShowLoadMoreIndicator, !isLoadingMoreCharacters else {
             return
+        }
+        
+        let offset = scrollView.contentOffset.y
+        let totalContentHeight = scrollView.contentSize.height
+        let totalScrollViewFixedHeight = scrollView.frame.size.height
+        
+        if offset >= (totalContentHeight - totalScrollViewFixedHeight - 120 ) {
+            print("Daha fazla yükle")
+            isLoadingMoreCharacters = true
+            
         }
     }
 }

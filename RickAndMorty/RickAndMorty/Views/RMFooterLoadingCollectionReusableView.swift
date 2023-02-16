@@ -6,13 +6,20 @@
 //
 
 import UIKit
-
+import SnapKit
 final class RMFooterLoadingCollectionReusableView: UICollectionReusableView {
     static let identifier = "RMFooterLoadingCollectionReusableView"
     
+    private let spinner : UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.hidesWhenStopped = true
+        return spinner
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor  = .blue
+        backgroundColor  = .systemBackground
+        addConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -21,7 +28,16 @@ final class RMFooterLoadingCollectionReusableView: UICollectionReusableView {
     
     
     private  func addConstraints() {
-        
+        addSubview(spinner)
+        spinner.snp.makeConstraints { make in
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+            make.centerX.equalTo(center)
+        }
+    }
+    
+    public func startAnimating() {
+        spinner.startAnimating()
     }
     
 }

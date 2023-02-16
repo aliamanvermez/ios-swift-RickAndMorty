@@ -1,8 +1,8 @@
 //
-//  RMCharacterViewViewModel.swift
+//  RMCharacterDetailViewViewModel.swift
 //  RickAndMorty
 //
-//  Created by Ali Amanvermez on 20.01.2023.
+//  Created by Ali Amanvermez on 16.02.2023.
 //
 
 import Foundation
